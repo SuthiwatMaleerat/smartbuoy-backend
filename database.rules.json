@@ -1,0 +1,16 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    "buoys": {
+      "$id": {
+        ".read": "auth != null",
+        "sensors": {
+          ".write": "auth.token.role == 'admin' || auth.token.role == 'staff'"
+        },
+        "settings": {
+          ".write": "auth.token.role == 'admin'"
+        }
+      }
+    }
+  }
+}

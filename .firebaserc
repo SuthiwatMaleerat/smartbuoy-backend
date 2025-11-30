@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "smart-buoy-system-d96cb",
+    "firebase projects:list": "smart-buoy-system-d96cb"
+  },
+  "targets": {},
+  "etags": {}
+}

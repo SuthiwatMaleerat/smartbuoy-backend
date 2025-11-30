@@ -1,0 +1,43 @@
+{
+    "anchor": {
+      "ph": 6.6,
+      "tds": 230,
+      "ec": 344,
+      "turbidity": 33.8,
+      "temperature": 27.3,
+      "rainfall": 1010
+    },
+    "diurnal": {
+      "temp_mean": 28.5,
+      "temp_amp": 2.8,
+      "temp_peak_hour": 15
+    },
+    "rain_map": {
+      "mm_at_heavy": 10,
+      "mv_at_dry": 1023,
+      "mv_drop_span": 600,
+      "noise_mv": 15
+    },
+    "turbidity_response": {
+      "base_min": 2.0,
+      "base_max": 6.0,
+      "rise_coeff": 0.6,
+      "lag_min_min": 30,
+      "lag_max_min": 90,
+      "half_life_hours": 3.5
+    },
+    "ec_tds": {
+      "ec_base": 800,
+      "dilution_max_frac": 0.15,
+      "recovery_hours": 30,
+      "tds_factor": 0.65,
+      "tds_noise": 30
+    },
+    "ph_response": {
+      "base": 7.5,
+      "rain_drop_per_10mm": 0.18,
+      "recovery_hours": 8,
+      "noise": 0.06
+    }
+  }
+  

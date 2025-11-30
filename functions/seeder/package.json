@@ -1,0 +1,8 @@
+{
+  "name": "seeder-tools",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "firebase-admin": "^11.11.1"
+  }
+}

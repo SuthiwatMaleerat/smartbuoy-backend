@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function isSignedIn()  { return request.auth != null; }
+    function role()        { return isSignedIn() ? request.auth.token.role : null; }
+    function isAdmin()     { return role() == 'admin'; }
+    function isSelf(uid)   { return isSignedIn() && request.auth.uid == uid; }
+
+    // users
+    match /users/{uid} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow write: if isSelf(uid) || isAdmin();
+    }
+
+    // buoy registry & alerts & timeseries
+    match /buoy_registry/{id} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+    match /sensor_timeseries/{doc} {
+      allow read: if isSignedIn();
+      allow create: if isAdmin(); // หรือให้ Cloud Functions เขียน
+    }
+    match /alerts/{doc} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // ถ้ามี weekly_forecasts ภายหลัง
+    match /weekly_forecasts/{doc} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // ตัดทุกอย่างที่เกี่ยวกับ orders/products ออก
+  }
+}

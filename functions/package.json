@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "description": "Smart Buoy Cloud Functions",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.13.1",
+    "firebase-admin": "^13.5.0",
+    "firebase-functions": "^6.6.0",
+    "google-auth-library": "^10.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "private": true
+}
